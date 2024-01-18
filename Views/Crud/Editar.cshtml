@@ -1,0 +1,50 @@
+﻿@model BaseDatos2crudFirebase.Models.ClienteFB
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar</h2>
+
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4> Editar Cliente </h4>
+    </div>
+
+    <div class="panel-body">
+        @using (Html.BeginForm("Editar", "Crud", FormMethod.Post))
+        {
+            @Html.HiddenFor(model => model.IdClienteFB)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TipoCliente)
+                @Html.TextBoxFor(model => model.TipoCliente, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EstadoCivil)
+                @Html.TextBoxFor(model => model.EstadoCivil, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Genero)
+                @Html.TextBoxFor(model => model.Genero, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Direcion)
+                @Html.TextBoxFor(model => model.Direcion, new { @class = "form-control" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        }
+    </div>
+</div>

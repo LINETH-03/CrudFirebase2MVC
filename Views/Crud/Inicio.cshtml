@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BaseDatos2crudFirebase.Models.ClienteFB>
+
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Inicio</h2>
+
+<div class="text-center">
+    <h1 class="display-4">CLIENTES</h1>
+</div>
+<div class="text-left mt-3">
+    <a class="btn btn-success" href="@Url.Action("Crear", "Crud")">Crear Cliente</a>
+</div>
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th>Nombre</th>
+                <th>Tipo de cliente</th>
+                <th>Estado civil</th>
+                <th>Género</th>
+                <th>Dirección</th>
+                <th style="width:150px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                   
+                    <td>@cliente.Nombre</td>
+                    <td>@cliente.TipoCliente</td>
+                    <td>@cliente.EstadoCivil</td>
+                    <td>@cliente.Genero</td>
+                    <td>@cliente.Direcion</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="@Url.Action("Editar", "Crud", new { idcliente = cliente.IdClienteFB })">Editar</a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("Eliminar", "Crud", new {idcliente=cliente.IdClienteFB })">Eliminar</a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay clientes disponibles.</p>
+}
+
+
+
